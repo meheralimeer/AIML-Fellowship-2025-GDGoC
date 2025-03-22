@@ -1,5 +1,6 @@
 from termcolor import colored
 import os
+import operation_handler
 
 def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -27,7 +28,7 @@ def main():
             case 3:
                 pass
             case 4:
-                pass
+                operation_handler.view_all_tasks()
             case 5:
                 print(colored("Exiting... Good Bye...", "yellow"))
                 break
