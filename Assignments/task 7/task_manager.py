@@ -22,7 +22,7 @@ def main():
         
         match choise:
             case 1:
-                pass
+                operation_handler.add_task()
             case 2:
                 pass
             case 3:

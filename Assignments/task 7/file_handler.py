@@ -2,6 +2,7 @@ def read_tasks():
     try:
         file = open("tasks.txt")
         tasks = {}
+        file.read()
         for line in file:
             line = line.strip()  # Remove trailing newline
             if line:  # Skip empty lines
@@ -17,12 +18,10 @@ def read_tasks():
         # Handle file not found by returning empty dictionary
         return {}
 
-def write_task(numbr: str, name: str, decs: str) -> bool:
+def write_task(name: str, decs: str) -> bool:
+    tasks = read_tasks()
+    numbr = len(tasks)
     file = open("tasks.txt", "a")
     file.write(f"{numbr}, {name}, {decs}\n")  # Removed extra comma
     file.close()  # Added parentheses
     return True
-
-
-write_task("1", "hehe", "nothing")
-print(read_tasks())
