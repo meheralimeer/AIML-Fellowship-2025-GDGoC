@@ -7,11 +7,11 @@ def clear_console():
 
 def main():
     clear_console()
-    print(colored("Welcome to Task Manager:-", "yellow"))
+    print(colored("Welcome to Task Manager:-", "yellow", None, ["bold"]))
     print()
     choise = 0
     while(True):
-        print(colored("Main Menu:", "blue"))
+        print(colored("Main Menu:", "blue", None, ["underline", "bold"]))
         print("1. Add a task")
         print("2. Remove a task")
         print("3. Update a task")
@@ -22,15 +22,22 @@ def main():
         
         match choise:
             case 1:
+                clear_console()
                 operation_handler.add_task()
+                clear_console()
             case 2:
-                pass
+                clear_console()
+                operation_handler.remove_task()
+                clear_console()
             case 3:
-                pass
+                clear_console()
+                operation_handler.update_task()
+                clear_console()
             case 4:
+                clear_console()
                 operation_handler.view_all_tasks()
             case 5:
-                print(colored("Exiting... Good Bye...", "yellow"))
+                print(colored("Exiting... Good Bye...", "black", "on_light_yellow"))
                 break
 
             case _:
