@@ -1,5 +1,6 @@
 filename = "Assignments/task 7/tasks.txt"
 
+
 def read_tasks():
     try:
         with open(filename) as file:
@@ -13,27 +14,33 @@ def read_tasks():
                 tasks[int(numbr)] = (name, desc)
             return tasks
     except FileNotFoundError:
-        pass
+        raise FileNotFoundError
+
 
 def write_task(name: str, decs: str) -> bool:
     tasks = read_tasks()
-    if tasks is None: numbr = 0;
-    else: numbr = len(tasks)
+    if tasks is None:
+        numbr = 0
+    else:
+        numbr = len(tasks)
     try:
         with open(filename, "+a") as file:
             file.write(f"{numbr + 1}, {name}, {decs}\n")
             return True
     except FileNotFoundError:
         return False
-    
+
+
 def update_task(id: int) -> bool:
     tasks = read_tasks()
+
 
 def rewrite_tasks(tasks: dict) -> bool:
     try:
         with open(filename, "w") as file:
             for numbr, name_and_desc in tasks.items():
-                file.write(f"{numbr}, {name_and_desc[0]}, {name_and_desc[1]}\n")
+                file.write(
+                    f"{numbr}, {name_and_desc[0]}, {name_and_desc[1]}\n")
             return True
     except FileNotFoundError:
         return False
